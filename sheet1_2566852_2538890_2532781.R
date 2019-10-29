@@ -14,9 +14,7 @@
 ## Matriculation number: 2566852 (MKG), 2538890 (MP), 2532781 (JW)
 
 ## Change the name of the file by adding your matriculation numbers
-## (sheet01_firstID_secondID_thirdID.R) sheet1_2566852_2538890_2532781
-
-
+## (sheet01_firstID_secondID_thirdID.R) -- sheet1_2566852_2538890_2532781
 
 ## Many of the things on this exercise sheet have not been discussed in class. 
 ## The answers will therefore not be on  the slides. You are expected to find 
@@ -187,7 +185,7 @@ plot(density(stories$obs), main="Kernel Density Plot - Stories", xlab="Observati
 ##    correctly.)
 
 # Not sure if this is what you wanted to see. This is the closest I could figure out:
-bin <- 17
+bin <- 8
 
 x_dens <- unlist(d[1], use.names=FALSE)
 y_dens <- unlist(d[2], use.names=FALSE)
@@ -269,13 +267,18 @@ samp_3 <- sample(b1temp, 20)
 samp_4 <- sample(b1temp, 20)
 samp_5 <- sample(b1temp, 20)
 
-hist(x = samp_1, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
-hist(x = samp_2, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
-hist(x = samp_3, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
-hist(x = samp_4, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
-hist(x = samp_5, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
+# hist(x = samp_1, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
+# hist(x = samp_2, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
+# hist(x = samp_3, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
+# hist(x = samp_4, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
+# hist(x = samp_5, main="Beaver 1 - Sample of 20", breaks = 8, xlab="Measurements")
+
+hist(x = samp_1, main="Beaver 1 - Sample of 20", xlab="Measurements")
+hist(x = samp_2, main="Beaver 1 - Sample of 20", xlab="Measurements")
+hist(x = samp_3, main="Beaver 1 - Sample of 20", xlab="Measurements")
+hist(x = samp_4, main="Beaver 1 - Sample of 20", xlab="Measurements")
+hist(x = samp_5, main="Beaver 1 - Sample of 20", xlab="Measurements")
 
 # It seems that the samples are distributed kind of normally.
 # At least, they fit 'into' or 'within' the curve of a normal distribution.
 # Most of the time.
-
