@@ -27,8 +27,7 @@
 ### Exercise 1: Getting started
 ###############
 ## a) Look at your current working directory.
-cwd <- getwd()
-cwd
+(cwd <- getwd())
 
 ## b) Get help with this function.
 help(getwd)
@@ -282,3 +281,4 @@ hist(x = samp_5, main="Beaver 1 - Sample of 20", xlab="Measurements")
 # It seems that the samples are distributed kind of normally.
 # At least, they fit 'into' or 'within' the curve of a normal distribution.
 # Most of the time.
+
