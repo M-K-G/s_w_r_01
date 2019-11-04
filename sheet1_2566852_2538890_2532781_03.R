@@ -340,3 +340,4 @@ hist(b5, breaks = 10)
 
 #It seems that the samples are negatively skewed.
 #They vary but the tendency is apparent in all five examples.
+
