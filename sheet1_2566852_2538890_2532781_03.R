@@ -274,16 +274,6 @@ b1temp <- beaver1$temp
 ## g) Calculate the mean and standard deviation of this dataset and plot a normal
 ##    distribution with these parameters.
 
-#@Martin: wenn wir oben meine variante mit select genommen hätten,
-#wäre b1temp ein dataset und keine variable.
-#Dann bräuchte man bei mean() und sd() b1temp$temp.
-#Jetzt bin ich mir gar nicht mehr sicher, was besser ist. Select oder das andere.
-#@Maike: Ich glaube im Endeffekt ist es egal. Aber die gesamt elegantere Variant ist
-# vermutlich mit select() gleich einen Dataframe zu bekommen. Ich schlage trotzdem vor,
-# es mit meiner "groberen" Variante einzureichen und so auf entsprechendes negatives
-# Feedback zu hoffen.
-#@Martin: klingt gut!
-
 b1_mn <- mean(b1temp)
 b1_sd <- sd(b1temp)
 dens_b1_temp <- dnorm(b1temp, b1_mn, b1_sd)
@@ -302,6 +292,12 @@ plot(b1temp, dens_b1_temp, col="blue")
 #@Maike: Nein, ich glaube nicht. Ich habe das hier (gleich unterhalb, auskommentiert) noch mal zusammengestellt.
 # Das Problem, dass die plot()-Funktion nichts für die y-Werte hat, außer die Indices der x-Werte
 # bleibt bestehen:
+#@Martin: ok danke. Dann hab ichs jetzt denk ich.
+#Wir brauchen bei dem Plot x-Werte und y-Werte, weil wir eine Normalverteilung
+#plotten, was dann fancy Malen nach Zahlen is(?). Also hier rechnet R nix, sondern nimmt nur die Koordinaten-Werte,
+#die wir vorgeben. Wie genau die richtige Zuteilung passiert ist mir nicht ganz klar.
+#Kann ich vll im Tutorium fragen dann am Mittwoch.
+#Ich war wegen den Histogrammen verwirrt, aber da werden nur Werte gezählt, also ist die y-Achse klar. Danke! :)
 
 # b1temp <- select(beaver1, temp)
 # b1_mn <- mean(b1temp$temp)
@@ -340,4 +336,3 @@ hist(b5, breaks = 10)
 
 #It seems that the samples are negatively skewed.
 #They vary but the tendency is apparent in all five examples.
-
