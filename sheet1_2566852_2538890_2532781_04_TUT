@@ -111,6 +111,10 @@ boxplot(AgeYear ~ Sex, data = dutchSpeakersDistMeta,
 
 library(dplyr)
 
+##they do it with subset:
+mean(subset(dutchSpeakersDistMeta, Sex =="male")$AgeYear)
+sd(subset(dutchSpeakersDistMeta, Sex = "male")$AgeYear)
+
 ## make subset of observations for group 'male
 males <- dutchSpeakersDistMeta %>%
   filter(Sex == 'male')
@@ -136,6 +140,7 @@ sd(females$AgeYear)
 ## h) What do the whiskers of a boxplot mean?
 
 #Whiskers show the most extreme data points within 1.5 times the Inter-Quartile-Range (IQR).
+#If this is how we said in the tutorial then this sentence is not correct.
 
 ###############
 ### Exercise 3: Children's stories & dataframes
@@ -150,6 +155,7 @@ sd(females$AgeYear)
 ## a) What measurement scale is this data? Is it discrete or continuous? Explain
 ##    in one sentence why? (remember, comment out written answers)
 
+#She has a different question than we did. 
 
 #The data is ratio-scaled and discrete. It is discrete because we know every value and cannot
 #have e.g. half values (you cannot use 'and then' 1.5 times) and it is ratio-scaled because
