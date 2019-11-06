@@ -155,7 +155,7 @@ sd(females$AgeYear)
 ## a) What measurement scale is this data? Is it discrete or continuous? Explain
 ##    in one sentence why? (remember, comment out written answers)
 
-#She has a different question than we did. 
+#She has a different question than we did.
 
 #The data is ratio-scaled and discrete. It is discrete because we know every value and cannot
 #have e.g. half values (you cannot use 'and then' 1.5 times) and it is ratio-scaled because
@@ -205,7 +205,8 @@ stories$pps <- factor(stories$pps)
 ##    to 8.
 
 h <- hist(stories$obs, breaks = 8, main="Histogram - Stories", xlab="Observations")
-
+#so apparently breaks are the boundaries of bins. bins will always be one lower
+#(also nicht nur die zwischenräume)
 
 ## i) Create a kernel density plot using density().
 
@@ -214,6 +215,9 @@ plot(d, main="Kernel Density Plot - Stories", xlab="Observations")
 
 
 ## j) What is the difference between a histogram and a kernel density plot?
+
+#Kernel Density Plot shows the probability for each value. Area under the curve
+#for density plot is always 1.
 
 # A histogram shows bars representing the frequencies of (a range of) observations, i.e. one
 # observation more with a certain value will increase the bar for that value by one.
@@ -225,6 +229,13 @@ plot(d, main="Kernel Density Plot - Stories", xlab="Observations")
 ## k) Overlay the histogram with the kernel density plot
 ##    (hint: the area under the curve should be equal for overlaying the graphs
 ##    correctly.)
+
+#relative frequencies in density plot and absolute frequencies in Histogram
+#change historgram to have probability instead with prob=TRUE
+
+hist(stories$obs, breaks = 8, prob=TRUE)
+lines(d)
+
 
 # Not sure if this is what you wanted to see. This is the closest we were able to figure out:
 bin <- 8
@@ -257,6 +268,7 @@ x <- seq(from = -5, to = 5, by = 0.1)
 help(dnorm)
 y <- dnorm(x)
 
+#If you don't specify further, R will think you want 0 as mean and 1 as sd.
 
 ## c) Now use plot() to plot the normal distribution for z values of "x".
 
@@ -282,6 +294,11 @@ help(abline)
 plot(x, y, type = "l", col="blue", lwd=2, ylim = c(0, 0.8))
 abline(v = median(x), lty = 2)
 
+#It wasn't in the question:
+#intercept (y-Achsenabschnitt), slope (steigung)
+#abline: a means intercept
+#abline: b means slope
+
 ## f) Take a look at the beaver1 dataset. (You can see it by typing "beaver1".)
 ##    Then select only the temperature part and store it in a variable "b1temp".
 
@@ -295,6 +312,10 @@ b1_sd <- sd(b1temp)
 dens_b1_temp <- dnorm(b1temp, b1_mn, b1_sd)
 
 plot(b1temp, dens_b1_temp, col="blue")
+
+#here's what they have
+xaxis <- seq(from = 35, to = 39, by = 0.1)
+#then use xaxis instead of dens_b1_temp
 
 #@Martin: ok. hier versteh ich was nicht. ich hatte das hier:
 #plot(dens_b1_temp, type = "l")
@@ -327,6 +348,10 @@ plot(b1temp, dens_b1_temp, col="blue")
 ##    from the normal distribution from g)?
 
 
+# they have
+pnorm(36.91,b1_mn, b1_sd, lower.tail=FALSE)
+#lower.tail means that we don't have to do the 1-pnorm
+
 1 - pnorm((36.91-b1_mn)/b1_sd)
 #The likeliness of 36.91 or more extreme values to come from the normal distibution g is 0.4023844.
 
@@ -336,6 +361,11 @@ plot(b1temp, dens_b1_temp, col="blue")
 ## i) Use the random sampling function in R to generate 20 random samples from
 ##    the normal distribution from g), and draw a histogram based on this sample.
 ##    Repeat 5 times. What do you observe?
+
+##they have:
+hist(rnorm(20, b1_mn, b1_sd))
+##five times
+
 
 b1 <- sample(dens_b1_temp, size = 50, replace = FALSE, prob = NULL)
 b2 <- sample(dens_b1_temp, size = 50, replace = FALSE, prob = NULL)
@@ -348,6 +378,13 @@ hist(b2, breaks = 10)
 hist(b3, breaks = 10)
 hist(b4, breaks = 10)
 hist(b5, breaks = 10)
+
+#alternative:
+
+for (i in (1:5)){
+  rand_samples <- rnorm(20, mean = b1_mn, sd = b1_sd)
+  hist(rand_samples, main = paste("Distribution # ", i))
+}
 
 
 #It seems that the samples are negatively skewed.
